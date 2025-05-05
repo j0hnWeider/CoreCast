@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Dashboard CoreCast</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Dashboard de Sensores</h1>
+    <canvas id="sensorChart" width="600" height="400"></canvas>
+    <script>
+        async function fetchData() {
+            const response = await fetch('/data');
+            const data = await response.json();
+            return data;
+        }
+
+        function renderChart(data) {
+            const ctx = document.getElementById('sensorChart').getContext('2d');
+            const labels = data.map(item => item.sensor);
+            const values = data.map(item => item.valor);
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Valor do Sensor',
+                        data: values,
+                        backgroundColor: 'rgba(54, 162, 235, 0.7)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        fetchData().then(renderChart);
+    </script>
+</body>
+</html>
