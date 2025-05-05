@@ -1,27 +1,22 @@
-from src.data_processing import load_data, preprocess_data
-from src.data_analysis import plot_histogram, plot_correlation_heatmap
-from src.modeling import train_model
+from data_processing import *
+from data_analysis import *
+from modeling import *
+from reporting import generate_report
+from dashboard import app
 
 def main():
-    # Exemplo de uso do projeto
-    data_path = 'data/exemplo_dados.csv'  # Substitua pelo caminho do seu arquivo de dados
-    df = load_data(data_path)
-    if df.empty:
-        print("Nenhum dado carregado. Verifique o arquivo.")
-        return
+    # Exemplo de fluxo de execução
+    print("Iniciando processamento de dados...")
+    # Aqui você chamaria funções de processamento, análise e modelagem
+    # Exemplo:
+    # data = load_data()
+    # processed_data = preprocess_data(data)
+    # analysis_results = analyze_data(processed_data)
+    # model = train_model(analysis_results)
+    # generate_report(analysis_results, 'relatorio.pdf')
 
-    df_clean = preprocess_data(df)
-
-    # Análise exploratória
-    if 'sensor_value' in df_clean.columns:
-        plot_histogram(df_clean, 'sensor_value')
-    plot_correlation_heatmap(df_clean)
-
-    # Modelagem preditiva
-    if 'target' in df_clean.columns:
-        train_model(df_clean, 'target')
-    else:
-        print("Coluna 'target' não encontrada para modelagem.")
+    print("Iniciando dashboard web...")
+    app.run(debug=True)
 
 if __name__ == "__main__":
     main()
