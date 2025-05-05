@@ -19,4 +19,22 @@ Desenvolvido por John Weider Batista Lima
 
 ## Como usar
 
-(Adicionar instruções para rodar o projeto localmente)
+1. Instale as dependências:
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Execute os scripts Python na ordem desejada para processar e analisar os dados.
+
+3. Utilize os notebooks Jupyter para visualização interativa e experimentação.
+
+## Próximos passos
+
+- Configurar integração contínua (CI) para testes automáticos.
+- Adicionar notebooks Jupyter com exemplos de uso.
+- Criar scripts para geração automática de relatórios.
+
+## Contato
+
+Para dúvidas ou sugestões, entre em contato: johnweider.tj@gmail.com
